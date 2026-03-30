@@ -1,0 +1,95 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyP+Z1KAO0jttGCGmhsA4bUX",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/tiarasudrajat-dev/ALPRO/blob/main/SOAL%202\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "J4fTt9cchZoy",
+        "outputId": "cf6391ce-a415-496e-82fa-879893e5c946"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "--- Perhitungan Jembatan Wheatstone pada Listrik Dinamis ---\n",
+            "============================================================\n",
+            "\n",
+            "Masukkan nilai R1 (Ohm): 60\n",
+            "Masukkan nilai R2 (Ohm): 32\n",
+            "Masukkan nilai R3 (Ohm): 12\n",
+            "\n",
+            "Nilai hambatan Rx adalah: 6.40 Ohm\n",
+            "\n",
+            "Tekan Enter untuk keluar...\n"
+          ]
+        }
+      ],
+      "source": [
+        "import os\n",
+        "\n",
+        "def hitung_jembatan_wheatstone():\n",
+        "    # Membersihkan layar (opsional, mirip clrscr di Pascal)\n",
+        "    # Gunakan 'cls' untuk Windows dan 'clear' untuk Linux/macOS\n",
+        "    os.system('cls' if os.name == 'nt' else 'clear')\n",
+        "\n",
+        "    print(\"--- Perhitungan Jembatan Wheatstone pada Listrik Dinamis ---\")\n",
+        "    print(\"============================================================\")\n",
+        "    print()\n",
+        "\n",
+        "    try:\n",
+        "        # Mengambil input dari user dan mengubahnya menjadi angka desimal (float)\n",
+        "        r1 = float(input(\"Masukkan nilai R1 (Ohm): \"))\n",
+        "        r2 = float(input(\"Masukkan nilai R2 (Ohm): \"))\n",
+        "        r3 = float(input(\"Masukkan nilai R3 (Ohm): \"))\n",
+        "\n",
+        "        # Rumus Rx pada kondisi jembatan seimbang\n",
+        "        # R1 * Rx = R2 * R3  =>  Rx = (R2 * R3) / R1\n",
+        "        rx = (r2 * r3) / r1\n",
+        "\n",
+        "        print(f\"\\nNilai hambatan Rx adalah: {rx:.2f} Ohm\")\n",
+        "\n",
+        "    except ZeroDivisionError:\n",
+        "        print(\"\\nKesalahan: R1 tidak boleh nol karena akan menyebabkan pembagian nol.\")\n",
+        "    except ValueError:\n",
+        "        print(\"\\nKesalahan: Mohon masukkan angka yang valid.\")\n",
+        "\n",
+        "    # Menahan layar agar tidak langsung tertutup (mirip readln di akhir Pascal)\n",
+        "    input(\"\\nTekan Enter untuk keluar...\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    hitung_jembatan_wheatstone()"
+      ]
+    }
+  ]
+}
